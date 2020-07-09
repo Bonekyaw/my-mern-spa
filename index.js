@@ -16,15 +16,13 @@ app.use(cookieParser());
 
 app.post('/api/users/register', (req, res) => {
     const user = new User(req.body);
-    user.save((err,userDate) => {
+    user.save((err,doc) => {
         if(err) return res.json({success:false,err});
     });
     return res.status(200).json({success:true});
 });
 
-app.get('/', (req, res) => {
-    res.send("Hello Express");
-});
+
 
 app.listen(5000, () => {
     console.log('App listening on port 5000!');
