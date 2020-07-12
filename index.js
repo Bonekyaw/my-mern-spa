@@ -3,11 +3,17 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+require('dotenv').config();
 const config = require('./config/key');
 const {User} = require('./models/user');
 const {auth} = require('./middleware/auth');
 
-mongoose.connect(config.mongoURI,{useNewUrlParser:true,useUnifiedTopology: true})
+mongoose.connect(config.mongoURI,{
+                useNewUrlParser:true,
+                useUnifiedTopology: true,
+                useCreateIndex: true,
+                useFindAndModify: false
+            })
             .then(() => console.log("DB Connected"))
             .catch((err) => console.error(err));
 
