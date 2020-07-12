@@ -3,14 +3,12 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const dotenv = require('dotenv');
+// require('dotenv').config();
+const config = require('./config/key');
 const {User} = require('./models/user');
 const {auth} = require('./middleware/auth');
 
-// Load config
-dotenv.config({ path: './config/config.env' });
-
-mongoose.connect(process.env.MONGO_URI,{
+mongoose.connect(config.mongoURI,{
                 useNewUrlParser:true,
                 useUnifiedTopology: true,
                 useCreateIndex: true,
