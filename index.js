@@ -26,6 +26,10 @@ app.get('/api/users/auth', auth, (req, res) => {
     })
 });
 
+app.get('/', (req, res) => {
+    res.json({"hello": "Heroku server deployment"})
+});
+
 app.post('/api/users/register', (req, res) => {
     const user = new User(req.body);
     user.save((err,doc) => {
