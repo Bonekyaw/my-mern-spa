@@ -3,12 +3,11 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-// require('dotenv').config();
 const config = require('./config/key');
 const {User} = require('./models/user');
 const {auth} = require('./middleware/auth');
 
-mongoose.connect(config.mongoURI,{
+mongoose.connect(mongodb+srv://phonenai2014:25122181986mc@react-express.p9i0t.mongodb.net/mctest?retryWrites=true&w=majority,{
                 useNewUrlParser:true,
                 useUnifiedTopology: true,
                 useCreateIndex: true,
